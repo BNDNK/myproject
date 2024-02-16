@@ -29,8 +29,8 @@ The API requires and API key.
 
 ## Screenshot
 
-![Weather Checker Screenshot](https://<img width="1436" alt="weather screenshot" src="https://github.com/BNDNK/myproject/assets/112815598/67336d5c-c6a4-41a7-9bd4-843e1b916525">
-)
+(https://<img width="1436" alt="weather screenshot" src="https://github.com/BNDNK/myproject/assets/112815598/67336d5c-c6a4-41a7-9bd4-843e1b916525">
+
 
 ## Credits
 
