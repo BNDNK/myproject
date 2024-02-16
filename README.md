@@ -1,21 +1,22 @@
 # Weather Checker
 
-![Weather Checker Screenshot](https://example.com/path/to/your/screenshot.png)
+![Weather Checker Screenshot](https://<img width="1436" alt="weather screenshot" src="https://github.com/BNDNK/myproject/assets/112815598/67336d5c-c6a4-41a7-9bd4-843e1b916525">
+)
 
 ## Description
 
-The Weather Checker is a JavaScript application that allows users to check the current weather conditions for a given location. It utilizes the OpenWeatherMap API to fetch weather data in real-time.
+The Weather Checker is a JS app that allows people to check the  weather for a given location. It uses the OpenWeatherMap API to get weather data.
 
 ## Features
 
-- Retrieves current weather data such as temperature, humidity, and wind speed.
-- Displays the weather information on the web page dynamically.
+- Gets current weather data such as temperature, humidity, and wind speed.
+- Shows the weather information on the web page dynamically.
 
 ## Usage
 
 1. Clone the repository to your local machine.
 2. Open the `index.html` file in a web browser.
-3. The weather information for the specified location will be displayed on the webpage.
+3. The weather  for the searched location will be displayed on the page.
 
 ## Technologies Used
 
@@ -25,8 +26,7 @@ The Weather Checker is a JavaScript application that allows users to check the c
 - OpenWeatherMap API
 
 ## API Key
-
-To use the OpenWeatherMap API, you need to obtain an API key. Replace the `apiKey` variable in the JavaScript code with your own API key.
+The API requires and API key.
 
 ## Screenshot
 
