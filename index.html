@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <button><img src="https://www.downloadclipart.net/large/search-button-png-image-hd.png" ></button>
+        </div>
+        <div class="weather" style="display: none;">
+            <img src="" class="weather-icon" height="100">
+            <h1 class="temp"></h1>
+            <h2 class="city"></h2>
+            <div class="details">
+                <div class="col">
+                    <img src="https://icon-library.com/images/humidity-icon/humidity-icon-14.jpg" height="100" alt="">
+                    <div>
+                        <p class="humidity"></p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="http://www.pngmart.com/files/3/Wind-PNG-Transparent-Image.png" height="100" alt="">
+                    <div>
+                        <p class="wind"></p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const apiKey = "dd298bb4fa9e4eb3846877f796b6b3d3";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherContainer = document.querySelector(".weather");
+        const weatherIcon = document.querySelector(".weather-icon");
+
+        async function CheckWeather(city) {
+    const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);
+
+    if (!response.ok) {
+        console.error('Failed to fetch weather data');
+        return;
+    }
+
+    const data = await response.json();
+
+    console.log(data);
+
+    document.querySelector(".city").innerHTML = data.name;
+    const tempFahrenheit = (data.main.temp * 9/5) + 32;
+    document.querySelector(".temp").innerHTML = Math.round(tempFahrenheit) + "°F";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+    document.querySelector(".wind").innerHTML = data.wind.speed + "m/s";
+
+    if (data.weather[0].main == "Clouds") {
+    weatherIcon.src = "https://clipartix.com/wp-content/uploads/2017/07/Cloudputing-free-clipart-images.png";
+} else if (data.weather[0].main == "Rain") {
+    weatherIcon.src = "https://tse1.mm.bing.net/th?id=OIP.xobXFIRXIrQPKB0lAVNd9AHaHm&pid=Api&P=0&h=180"; // Replace with the correct URL
+} else if (data.weather[0].main == "Clear") {
+    weatherIcon.src = "https://i0.wp.com/webstockreview.net/images/sunny-clipart-sunny-weather-16.png"; // Replace with the correct URL
+}
+// Add more conditions for other weather types as needed
+
+
+    // Show weather container after getting data
+    weatherContainer.style.display = "block";
+}
+
+        searchBtn.addEventListener("click", () => {
+            const city = searchBox.value.trim();
+            if (city !== "") {
+                CheckWeather(city);
+            }
+        });
+    </script>
+</body>
+</html>
